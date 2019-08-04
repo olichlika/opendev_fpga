@@ -1,0 +1,9 @@
+module spi_module(
+   input clk,
+   input rst_n,
+   input,
+   input,
+   output,
+   output
+);
+endmodule

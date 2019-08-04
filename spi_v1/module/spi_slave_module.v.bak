@@ -1,0 +1,7 @@
+module spi_slave_module(
+   input clk,
+   input rst_n,
+   input ncs, mosi, sck;
+   output miso
+);
+endmodule
