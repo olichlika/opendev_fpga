@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE10F17C8
-set_global_assignment -name TOP_LEVEL_ENTITY demo_v2
+set_global_assignment -name TOP_LEVEL_ENTITY spi_slave_module
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:21:47  AUGUST 01, 2019"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -84,32 +84,13 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_IN_ENABLE
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=basic,1," -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=0" -section_id auto_signaltap_0
-set_global_assignment -name VERILOG_FILE ../module/tx_func_module.v
-set_global_assignment -name VERILOG_FILE ../module/spi_slave_module.v
-set_global_assignment -name VERILOG_FILE ../module/spi_slave_demo.v
-set_global_assignment -name SIGNALTAP_FILE stp1.stp
-set_global_assignment -name QIP_FILE ipcore/fifo.qip
 set_location_assignment PIN_M7 -to txd
-set_global_assignment -name CDF_FILE Chain2.cdf
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to DoneU1[0] -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to DoneU1[0] -section_id auto_signaltap_0
-set_global_assignment -name VERILOG_FILE ../module/demo_v2.v
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to miso
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mosi
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ncs
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rst_n
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sck
 set_location_assignment PIN_F2 -to tsck
 set_location_assignment PIN_F1 -to tncs
 set_location_assignment PIN_F3 -to tmosi
 set_location_assignment PIN_D1 -to tmiso
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to tmiso
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to tmosi
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to tncs
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to tsck
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to DoneU1[1] -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[13] -to "spi_slave_module:U1|sck" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to DoneU1[1] -section_id auto_signaltap_0
@@ -164,5 +145,24 @@ set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[10] -t
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[11] -to "spi_slave_module:U1|rec_status[6]" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[12] -to "spi_slave_module:U1|rec_status[7]" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=14584" -section_id auto_signaltap_0
+set_global_assignment -name VERILOG_FILE ../module/tx_func_module.v
+set_global_assignment -name VERILOG_FILE ../module/spi_slave_module.v
+set_global_assignment -name SIGNALTAP_FILE stp1.stp
+set_global_assignment -name QIP_FILE ipcore/fifo.qip
+set_global_assignment -name CDF_FILE Chain2.cdf
+set_global_assignment -name VERILOG_FILE ../module/spi_control_module.v
+set_global_assignment -name VERILOG_FILE ../module/spi_func_module.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to miso
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mosi
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ncs
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rst_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sck
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to tmiso
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to tmosi
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to tncs
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to tsck
 set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

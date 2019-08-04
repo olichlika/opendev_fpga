@@ -1,18 +1,17 @@
-|demo_v2
-clk => clk.IN1
-rst_n => rst_n.IN1
-txd <= <GND>
+|spi_slave_module
+clk => clk.IN2
+rst_n => rst_n.IN2
 ncs => ncs.IN1
 mosi => mosi.IN1
 sck => sck.IN1
-miso <= spi_slave_module:U1.miso
-tncs <= ncs.DB_MAX_OUTPUT_PORT_TYPE
-tmosi <= mosi.DB_MAX_OUTPUT_PORT_TYPE
-tsck <= sck.DB_MAX_OUTPUT_PORT_TYPE
-tmiso <= spi_slave_module:U1.miso
+miso << spi_func_module:U1.miso
+tncs << ncs.DB_MAX_OUTPUT_PORT_TYPE
+tmosi << mosi.DB_MAX_OUTPUT_PORT_TYPE
+tsck << sck.DB_MAX_OUTPUT_PORT_TYPE
+tmiso << spi_func_module:U1.miso
 
 
-|demo_v2|spi_slave_module:U1
+|spi_slave_module|spi_func_module:U1
 clk => miso~reg0.CLK
 clk => ODone[1]~reg0.CLK
 clk => send_status[0].CLK
@@ -133,5 +132,76 @@ ncs => ncs_r[0].DATAIN
 mosi => mosi_r[0].DATAIN
 sck => sck_edge[0].DATAIN
 miso <= miso~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|spi_slave_module|spi_control_module:U2
+clk => oData[0]~reg0.CLK
+clk => oData[1]~reg0.CLK
+clk => oData[2]~reg0.CLK
+clk => oData[3]~reg0.CLK
+clk => oData[4]~reg0.CLK
+clk => oData[5]~reg0.CLK
+clk => oData[6]~reg0.CLK
+clk => oData[7]~reg0.CLK
+clk => oCall~reg0.CLK
+clk => i[0].CLK
+clk => i[1].CLK
+clk => i[2].CLK
+clk => i[3].CLK
+clk => ncs_r[0].CLK
+clk => ncs_r[1].CLK
+clk => ncs_r[2].CLK
+rst_n => oData[0]~reg0.ACLR
+rst_n => oData[1]~reg0.ACLR
+rst_n => oData[2]~reg0.ACLR
+rst_n => oData[3]~reg0.ACLR
+rst_n => oData[4]~reg0.ACLR
+rst_n => oData[5]~reg0.ACLR
+rst_n => oData[6]~reg0.ACLR
+rst_n => oData[7]~reg0.ACLR
+rst_n => oCall~reg0.ACLR
+rst_n => i[0].ACLR
+rst_n => i[1].ACLR
+rst_n => i[2].ACLR
+rst_n => i[3].ACLR
+rst_n => ncs_r[0].ACLR
+rst_n => ncs_r[1].ACLR
+rst_n => ncs_r[2].ACLR
+ncs => ncs_r[0].DATAIN
+iDone[0] => Mux3.IN3
+iDone[1] => i.OUTPUTSELECT
+iDone[1] => i.OUTPUTSELECT
+iDone[1] => i.OUTPUTSELECT
+iDone[1] => i.OUTPUTSELECT
+iDone[1] => Selector0.IN1
+iDone[1] => Selector1.IN1
+iDone[1] => Selector2.IN1
+iDone[1] => Selector3.IN1
+iDone[1] => Selector4.IN1
+iData[0] => Equal0.IN7
+iData[0] => Equal1.IN7
+iData[1] => Equal0.IN1
+iData[1] => Equal1.IN3
+iData[2] => Equal0.IN0
+iData[2] => Equal1.IN6
+iData[3] => Equal0.IN6
+iData[3] => Equal1.IN2
+iData[4] => Equal0.IN5
+iData[4] => Equal1.IN5
+iData[5] => Equal0.IN4
+iData[5] => Equal1.IN1
+iData[6] => Equal0.IN3
+iData[6] => Equal1.IN4
+iData[7] => Equal0.IN2
+iData[7] => Equal1.IN0
+oCall <= oCall~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oData[0] <= oData[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oData[1] <= oData[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oData[2] <= oData[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oData[3] <= oData[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oData[4] <= oData[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oData[5] <= oData[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oData[6] <= oData[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oData[7] <= oData[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

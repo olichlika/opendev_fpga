@@ -1,0 +1,94 @@
+module spi_control_module(
+   input clk,
+   input rst_n,
+	output txd,
+	//spi部分
+   input ncs, mosi, sck,
+   output miso,
+	//测试信号
+	output tncs, tmosi, tsck,
+   output tmiso
+);
+assign tsck = sck;
+assign tncs = ncs;
+assign tmosi = mosi;
+assign tmiso = miso;
+
+wire [1:0] DoneU1/*synthesis keep*/;
+wire [7:0] DataU1/*synthesis keep*/;
+
+spi_slave_module U1(
+	.clk (clk),
+	.rst_n (rst_n),
+	.ICall (isCall),
+	.IData (iData),
+	.OData (DataU1),
+	.ODone (DoneU1),
+	.ncs (ncs),
+	.mosi (mosi),
+	.sck (sck),
+	.miso (miso)
+);
+
+
+//************控制部分************
+reg [3:0] i;
+reg isCall;
+reg [7:0] iData;
+//reg [7:0] SPIData/*synthesis noprune*/;
+
+always @(posedge clk or negedge rst_n) begin
+   if(!rst_n)
+		begin
+			i <= 4'd0;
+			isCall <= 1'b0;
+			iData <= 8'd0;
+		end
+   else
+		case(i)
+			0:
+				if(DoneU1[0])
+					i <= i + 1'b1;
+				else
+					i <= 4'd0;
+			1:
+				if(DataU1 == 8'h06)//处理0x06命令
+					begin
+						//iData <= 8'hd4;
+						i <= 4'd2;
+					end
+				else if(DataU1 == 8'haa)
+					begin
+						//iData <= 8'hd4;
+						i <= 4'd3;
+					end				
+				else
+					i <= 4'd0;
+			2:
+				if(DoneU1[1])
+					begin
+						isCall <= 1'b0;
+						i <= 4'd0;
+						iData <= 8'd0;
+					end
+				else
+					begin
+						iData <= 8'hd4;
+						isCall <= 1'b1;
+					end
+			3:
+				if(DoneU1[1])
+					begin
+						isCall <= 1'b0;
+						i <= 4'd0;
+						iData <= 8'd0;
+					end
+				else
+					begin
+						iData <= 8'hc4;
+						isCall <= 1'b1;
+					end				
+		endcase
+end
+
+endmodule
