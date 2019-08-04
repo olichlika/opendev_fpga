@@ -49,17 +49,12 @@ wire mosi_t = mosi_r[2];
 reg [7:0] rec_status;  //SPI接收部分状态机
 reg [7:0] byte_received; //移位寄存器
 reg [3:0] bit_received_cnt;//接收位数寄存器
-//reg [7:0] rec_data; //接收缓存器
-//reg rec_flag; //接收标志位/接收缓存器非空标志位
-//reg [2:0] rec_flag_width;  //SPI接收完成标志位脉冲宽度寄存器
 
 always @(posedge clk or negedge rst_n) begin
    if(!rst_n)
 		begin
 			rec_status <= 8'd0;
 			byte_received <= 8'd0;
-			//bit_received_cnt <= 4'd0;
-			//rec_flag_width <= 3'b000;
 			ODone[0] <= 1'b0;
 			OData <= 8'd0;
 		end
@@ -68,20 +63,6 @@ always @(posedge clk or negedge rst_n) begin
 			if(!ncs_t) //ncs有效
 				begin
 					case(rec_status)
-//						2'd0:
-//							begin
-//								if(sck_riseedge)
-//									begin
-//										byte_received <= {byte_received[6:0], mosi};
-//										if(bit_received_cnt == 4'h7)
-//											begin
-//												bit_received_cnt <= 4'd0;
-//												rec_status <= 2'd1;
-//											end
-//										else
-//											bit_received_cnt <= bit_received_cnt + 1'b1;
-//									end
-//							end
 						8'd0, 8'd1, 8'd2, 8'd3, 8'd4, 8'd5, 8'd6, 8'd7:
 							if(sck_riseedge)
 								begin
@@ -93,15 +74,6 @@ always @(posedge clk or negedge rst_n) begin
 								OData <= byte_received;
 								ODone[0] <= 1'b1;
 								rec_status <= rec_status + 1'b1;
-//								rec_data <= byte_received;
-//								rec_flag <= 1'b1;
-//								if(rec_flag_width == 3'b100)
-//									begin
-//										rec_flag_width <= 3'b000;
-//										rec_status <= 2'd2;
-//									end
-//								else:
-//									rec_flag_width <= rec_flag_width + 1;
 							end
 						8'd9:
 							begin
@@ -112,12 +84,7 @@ always @(posedge clk or negedge rst_n) begin
 				end
 			else
 				begin
-					rec_status <= 8'd0;
-					//byte_received <= 8'd0;
-					//bit_received_cnt <= 4'd0;
-					//rec_flag_width <= 3'b000;
-					//ODone[0] <= 1'b0;
-					//OData <= 8'd0;					
+					rec_status <= 8'd0;				
 				end
 		end
 end
@@ -141,11 +108,6 @@ always @(posedge clk or negedge rst_n) begin
 							miso <= IData[7 - send_status];//发送第7位
 							send_status <= send_status + 1'b1;
 						end
-	//				else
-	//					begin
-	//						miso <= miso;
-	//						send_status <= send_status;
-	//					end
 				8'd8:
 					if(sck_falledge)//等最后一次下降沿
 						begin
