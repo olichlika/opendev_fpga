@@ -1,0 +1,60 @@
+|pwm_test
+clk => clk.IN1
+rst_n => rst_n.IN1
+PWM_Output_Sig << pwm:U0.oPWM_Output_Sig
+
+
+|pwm_test|pwm:U0
+clk => r_PWM_Output_Sig.CLK
+clk => C1[0].CLK
+clk => C1[1].CLK
+clk => C1[2].CLK
+clk => C1[3].CLK
+clk => C1[4].CLK
+clk => C1[5].CLK
+clk => C1[6].CLK
+clk => C1[7].CLK
+clk => C1[8].CLK
+clk => C1[9].CLK
+clk => C1[10].CLK
+clk => C1[11].CLK
+clk => C1[12].CLK
+clk => C1[13].CLK
+clk => C1[14].CLK
+clk => C1[15].CLK
+clk => C1[16].CLK
+clk => C1[17].CLK
+clk => C1[18].CLK
+clk => C1[19].CLK
+rst_n => C1[0].ACLR
+rst_n => C1[1].ACLR
+rst_n => C1[2].ACLR
+rst_n => C1[3].ACLR
+rst_n => C1[4].ACLR
+rst_n => C1[5].ACLR
+rst_n => C1[6].ACLR
+rst_n => C1[7].ACLR
+rst_n => C1[8].ACLR
+rst_n => C1[9].ACLR
+rst_n => C1[10].ACLR
+rst_n => C1[11].ACLR
+rst_n => C1[12].ACLR
+rst_n => C1[13].ACLR
+rst_n => C1[14].ACLR
+rst_n => C1[15].ACLR
+rst_n => C1[16].ACLR
+rst_n => C1[17].ACLR
+rst_n => C1[18].ACLR
+rst_n => C1[19].ACLR
+rst_n => r_PWM_Output_Sig.ACLR
+iPWM_Control_Sig[0] => Decoder0.IN7
+iPWM_Control_Sig[1] => Decoder0.IN6
+iPWM_Control_Sig[2] => Decoder0.IN5
+iPWM_Control_Sig[3] => Decoder0.IN4
+iPWM_Control_Sig[4] => Decoder0.IN3
+iPWM_Control_Sig[5] => Decoder0.IN2
+iPWM_Control_Sig[6] => Decoder0.IN1
+iPWM_Control_Sig[7] => Decoder0.IN0
+oPWM_Output_Sig <= r_PWM_Output_Sig.DB_MAX_OUTPUT_PORT_TYPE
+
+

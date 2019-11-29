@@ -1,0 +1,6 @@
+module pwm_test_module(
+	input clk,
+	input rst_n,
+	input [7:0] PWM_Control_Sig,
+	output PWM_Output_Sig
+);

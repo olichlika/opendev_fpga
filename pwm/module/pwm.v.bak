@@ -1,0 +1,18 @@
+module pwm(
+	input clk,
+	input rst,
+	input [7:0] PWM_Control_Sig,
+	output PWM_Output_Sig
+);
+
+//1个时钟是20ns 500_000ns 需要25000个时钟
+parameter T0_5MS = 20'd25000-1;
+parameter T0_75MS = 20'd37500-1;
+parameter T1_00MS = 20'd50000-1;
+parameter T1_25MS = 20'd62500-1;
+parameter T1_50MS = 20'd75000-1;
+parameter T1_75MS = 20'd87500-1;
+parameter T2_00MS = 20'd100000-1;
+parameter T2_25MS = 20'd112500-1;
+parameter T2_50MS = 20'd125000-1;
+endmodule
