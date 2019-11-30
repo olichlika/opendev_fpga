@@ -1,0 +1,6 @@
+
+State Machine - |demo_v2|spi_slave_module:U1|rec_status
+Name rec_status.00 rec_status.10 rec_status.01 
+rec_status.00 0 0 0 
+rec_status.01 1 0 1 
+rec_status.10 1 1 0 
