@@ -1,5 +1,5 @@
 Flow report for spi
-Sat Nov 30 15:10:23 2019
+Sat Nov 30 19:23:32 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Nov 30 15:10:23 2019       ;
+; Flow Status                        ; Successful - Sat Nov 30 19:23:32 2019       ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
 ; Revision Name                      ; spi                                         ;
 ; Top-level Entity Name              ; spi_slave_module                            ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE10F17C8                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 211 / 10,320 ( 2 % )                        ;
-;     Total combinational functions  ; 199 / 10,320 ( 2 % )                        ;
-;     Dedicated logic registers      ; 81 / 10,320 ( < 1 % )                       ;
-; Total registers                    ; 81                                          ;
-; Total pins                         ; 10 / 180 ( 6 % )                            ;
+; Total logic elements               ; 388 / 10,320 ( 4 % )                        ;
+;     Total combinational functions  ; 339 / 10,320 ( 3 % )                        ;
+;     Dedicated logic registers      ; 181 / 10,320 ( 2 % )                        ;
+; Total registers                    ; 181                                         ;
+; Total pins                         ; 21 / 180 ( 12 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 423,936 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 46 ( 0 % )                              ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/30/2019 15:10:07 ;
+; Start date & time ; 11/30/2019 19:23:13 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; spi                 ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+------------------+----------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name      ; Section Id     ;
 +--------------------------------------+---------------------------------------+---------------+------------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 238368706585323.157509780707416       ; --            ; --               ; --             ;
+; COMPILER_SIGNATURE_ID                ; 238368706585323.157511299307588       ; --            ; --               ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --               ; spi_module_tb  ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; spi_module_tb                         ; --            ; --               ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --               ; eda_simulation ;
@@ -105,12 +105,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 489 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:04     ; 1.0                     ; 1111 MB             ; 00:00:06                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 444 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 510 MB              ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 400 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:10     ; --                      ; --                  ; 00:00:12                           ;
+; Analysis & Synthesis      ; 00:00:04     ; 1.0                     ; 504 MB              ; 00:00:04                           ;
+; Fitter                    ; 00:00:06     ; 2.0                     ; 1120 MB             ; 00:00:06                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 437 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 519 MB              ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 408 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:13     ; --                      ; --                  ; 00:00:14                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

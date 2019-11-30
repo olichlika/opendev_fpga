@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Nov 30 15:10:09 2019
+Analysis & Synthesis Status : Successful - Sat Nov 30 19:23:17 2019
 Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Full Version
 Revision Name : spi
 Top-level Entity Name : spi_slave_module
 Family : Cyclone IV E
-Total logic elements : 218
-    Total combinational functions : 199
-    Dedicated logic registers : 81
-Total registers : 81
-Total pins : 10
+Total logic elements : 446
+    Total combinational functions : 339
+    Dedicated logic registers : 181
+Total registers : 181
+Total pins : 21
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

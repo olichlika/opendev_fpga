@@ -1,5 +1,5 @@
 Analysis & Synthesis report for spi
-Sat Nov 30 15:10:09 2019
+Sat Nov 30 19:23:17 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -19,9 +19,20 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
  11. Source assignments for Top-level Entity: |spi_slave_module
  12. Source assignments for spi_func_module:U1
  13. Parameter Settings for User Entity Instance: spi_control_module:U2
- 14. Parameter Settings for User Entity Instance: pwm:PWM_Coxa_Module
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+ 14. Parameter Settings for User Entity Instance: pwm:PWM_Top_Left_Coxa_Module
+ 15. Parameter Settings for User Entity Instance: pwm:PWM_Top_Left_Femur_Module
+ 16. Parameter Settings for User Entity Instance: pwm:PWM_Top_Left_Tibia_Module
+ 17. Parameter Settings for User Entity Instance: pwm:PWM_Top_Right_Coxa_Module
+ 18. Parameter Settings for User Entity Instance: pwm:PWM_Top_Right_Femur_Module
+ 19. Parameter Settings for User Entity Instance: pwm:PWM_Top_Right_Tibia_Module
+ 20. Parameter Settings for User Entity Instance: pwm:PWM_Back_Left_Coxa_Module
+ 21. Parameter Settings for User Entity Instance: pwm:PWM_Back_Left_Femur_Module
+ 22. Parameter Settings for User Entity Instance: pwm:PWM_Back_Left_Tibia_Module
+ 23. Parameter Settings for User Entity Instance: pwm:PWM_Back_Right_Coxa_Module
+ 24. Parameter Settings for User Entity Instance: pwm:PWM_Back_Right_Femur_Module
+ 25. Parameter Settings for User Entity Instance: pwm:PWM_Back_Right_Tibia_Module
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -47,16 +58,16 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Nov 30 15:10:09 2019       ;
+; Analysis & Synthesis Status        ; Successful - Sat Nov 30 19:23:17 2019       ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
 ; Revision Name                      ; spi                                         ;
 ; Top-level Entity Name              ; spi_slave_module                            ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 218                                         ;
-;     Total combinational functions  ; 199                                         ;
-;     Dedicated logic registers      ; 81                                          ;
-; Total registers                    ; 81                                          ;
-; Total pins                         ; 10                                          ;
+; Total logic elements               ; 446                                         ;
+;     Total combinational functions  ; 339                                         ;
+;     Dedicated logic registers      ; 181                                         ;
+; Total registers                    ; 181                                         ;
+; Total pins                         ; 21                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -185,58 +196,289 @@ applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 218       ;
+; Estimated Total logic elements              ; 446       ;
 ;                                             ;           ;
-; Total combinational functions               ; 199       ;
+; Total combinational functions               ; 339       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 93        ;
-;     -- 3 input functions                    ; 29        ;
-;     -- <=2 input functions                  ; 77        ;
+;     -- 4 input functions                    ; 192       ;
+;     -- 3 input functions                    ; 57        ;
+;     -- <=2 input functions                  ; 90        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 166       ;
+;     -- normal mode                          ; 306       ;
 ;     -- arithmetic mode                      ; 33        ;
 ;                                             ;           ;
-; Total registers                             ; 81        ;
-;     -- Dedicated logic registers            ; 81        ;
+; Total registers                             ; 181       ;
+;     -- Dedicated logic registers            ; 181       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 10        ;
+; I/O pins                                    ; 21        ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 81        ;
-; Total fan-out                               ; 908       ;
-; Average fan-out                             ; 3.03      ;
+; Maximum fan-out                             ; 181       ;
+; Total fan-out                               ; 1825      ;
+; Average fan-out                             ; 3.25      ;
 +---------------------------------------------+-----------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                             ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                     ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+--------------+
-; |spi_slave_module          ; 199 (10)          ; 81 (0)       ; 0           ; 0            ; 0       ; 0         ; 10   ; 0            ; |spi_slave_module                       ; work         ;
-;    |pwm:PWM_Coxa_Module|   ; 93 (93)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Coxa_Module   ; work         ;
-;    |spi_control_module:U2| ; 18 (18)           ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|spi_control_module:U2 ; work         ;
-;    |spi_func_module:U1|    ; 78 (78)           ; 41 (41)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|spi_func_module:U1    ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                 ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
+; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                               ; Library Name ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
+; |spi_slave_module                    ; 339 (10)          ; 181 (0)      ; 0           ; 0            ; 0       ; 0         ; 21   ; 0            ; |spi_slave_module                                 ; work         ;
+;    |pwm:PWM_Back_Left_Coxa_Module|   ; 46 (46)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Back_Left_Coxa_Module   ; work         ;
+;    |pwm:PWM_Back_Left_Femur_Module|  ; 10 (10)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Back_Left_Femur_Module  ; work         ;
+;    |pwm:PWM_Back_Left_Tibia_Module|  ; 10 (10)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Back_Left_Tibia_Module  ; work         ;
+;    |pwm:PWM_Back_Right_Coxa_Module|  ; 10 (10)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Back_Right_Coxa_Module  ; work         ;
+;    |pwm:PWM_Back_Right_Femur_Module| ; 10 (10)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Back_Right_Femur_Module ; work         ;
+;    |pwm:PWM_Back_Right_Tibia_Module| ; 11 (11)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Back_Right_Tibia_Module ; work         ;
+;    |pwm:PWM_Top_Left_Coxa_Module|    ; 60 (60)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Top_Left_Coxa_Module    ; work         ;
+;    |pwm:PWM_Top_Left_Femur_Module|   ; 10 (10)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Top_Left_Femur_Module   ; work         ;
+;    |pwm:PWM_Top_Left_Tibia_Module|   ; 10 (10)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Top_Left_Tibia_Module   ; work         ;
+;    |pwm:PWM_Top_Right_Coxa_Module|   ; 10 (10)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Top_Right_Coxa_Module   ; work         ;
+;    |pwm:PWM_Top_Right_Femur_Module|  ; 10 (10)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Top_Right_Femur_Module  ; work         ;
+;    |pwm:PWM_Top_Right_Tibia_Module|  ; 10 (10)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|pwm:PWM_Top_Right_Tibia_Module  ; work         ;
+;    |spi_control_module:U2|           ; 44 (44)           ; 108 (108)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|spi_control_module:U2           ; work         ;
+;    |spi_func_module:U1|              ; 78 (78)           ; 41 (41)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |spi_slave_module|spi_func_module:U1              ; work         ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                  ;
-+----------------------------------------+--------------------------------------------+
-; Register name                          ; Reason for Removal                         ;
-+----------------------------------------+--------------------------------------------+
-; spi_control_module:U2|oData[0,1,3,5]   ; Stuck at GND due to stuck port data_in     ;
-; spi_control_module:U2|oData[4,6,7]     ; Merged with spi_control_module:U2|oData[2] ;
-; spi_func_module:U1|ncs_r[2]            ; Merged with spi_control_module:U2|ncs_r[2] ;
-; spi_control_module:U2|i[4..7]          ; Merged with spi_control_module:U2|i[3]     ;
-; spi_func_module:U1|ncs_r[1]            ; Merged with spi_control_module:U2|ncs_r[1] ;
-; spi_func_module:U1|ncs_r[0]            ; Merged with spi_control_module:U2|ncs_r[0] ;
-; spi_control_module:U2|i[3]             ; Stuck at GND due to stuck port data_in     ;
-; Total Number of Removed Registers = 15 ;                                            ;
-+----------------------------------------+--------------------------------------------+
++--------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                         ;
++-----------------------------------------+--------------------------------------------------+
+; Register name                           ; Reason for Removal                               ;
++-----------------------------------------+--------------------------------------------------+
+; spi_control_module:U2|oData[0,1,3,5]    ; Stuck at GND due to stuck port data_in           ;
+; spi_control_module:U2|oData[4,6,7]      ; Merged with spi_control_module:U2|oData[2]       ;
+; spi_func_module:U1|ncs_r[2]             ; Merged with spi_control_module:U2|ncs_r[2]       ;
+; spi_control_module:U2|i[5..7]           ; Merged with spi_control_module:U2|i[4]           ;
+; pwm:PWM_Back_Left_Femur_Module|C1[19]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[19] ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[19]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[19] ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[19]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[19] ;
+; pwm:PWM_Back_Right_Femur_Module|C1[19]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[19] ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[19]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[19] ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[19]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[19] ;
+; pwm:PWM_Top_Left_Femur_Module|C1[19]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[19] ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[19]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[19] ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[19]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[19] ;
+; pwm:PWM_Top_Right_Femur_Module|C1[19]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[19] ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[19]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[19] ;
+; pwm:PWM_Back_Left_Femur_Module|C1[18]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[18] ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[18]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[18] ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[18]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[18] ;
+; pwm:PWM_Back_Right_Femur_Module|C1[18]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[18] ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[18]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[18] ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[18]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[18] ;
+; pwm:PWM_Top_Left_Femur_Module|C1[18]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[18] ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[18]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[18] ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[18]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[18] ;
+; pwm:PWM_Top_Right_Femur_Module|C1[18]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[18] ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[18]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[18] ;
+; pwm:PWM_Back_Left_Femur_Module|C1[17]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[17] ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[17]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[17] ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[17]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[17] ;
+; pwm:PWM_Back_Right_Femur_Module|C1[17]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[17] ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[17]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[17] ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[17]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[17] ;
+; pwm:PWM_Top_Left_Femur_Module|C1[17]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[17] ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[17]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[17] ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[17]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[17] ;
+; pwm:PWM_Top_Right_Femur_Module|C1[17]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[17] ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[17]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[17] ;
+; pwm:PWM_Back_Left_Femur_Module|C1[16]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[16] ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[16]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[16] ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[16]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[16] ;
+; pwm:PWM_Back_Right_Femur_Module|C1[16]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[16] ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[16]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[16] ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[16]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[16] ;
+; pwm:PWM_Top_Left_Femur_Module|C1[16]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[16] ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[16]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[16] ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[16]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[16] ;
+; pwm:PWM_Top_Right_Femur_Module|C1[16]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[16] ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[16]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[16] ;
+; pwm:PWM_Back_Left_Femur_Module|C1[15]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[15] ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[15]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[15] ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[15]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[15] ;
+; pwm:PWM_Back_Right_Femur_Module|C1[15]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[15] ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[15]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[15] ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[15]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[15] ;
+; pwm:PWM_Top_Left_Femur_Module|C1[15]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[15] ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[15]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[15] ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[15]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[15] ;
+; pwm:PWM_Top_Right_Femur_Module|C1[15]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[15] ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[15]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[15] ;
+; pwm:PWM_Back_Left_Femur_Module|C1[14]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[14] ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[14]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[14] ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[14]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[14] ;
+; pwm:PWM_Back_Right_Femur_Module|C1[14]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[14] ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[14]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[14] ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[14]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[14] ;
+; pwm:PWM_Top_Left_Femur_Module|C1[14]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[14] ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[14]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[14] ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[14]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[14] ;
+; pwm:PWM_Top_Right_Femur_Module|C1[14]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[14] ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[14]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[14] ;
+; pwm:PWM_Back_Left_Femur_Module|C1[13]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[13] ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[13]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[13] ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[13]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[13] ;
+; pwm:PWM_Back_Right_Femur_Module|C1[13]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[13] ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[13]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[13] ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[13]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[13] ;
+; pwm:PWM_Top_Left_Femur_Module|C1[13]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[13] ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[13]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[13] ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[13]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[13] ;
+; pwm:PWM_Top_Right_Femur_Module|C1[13]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[13] ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[13]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[13] ;
+; pwm:PWM_Back_Left_Femur_Module|C1[12]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[12] ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[12]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[12] ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[12]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[12] ;
+; pwm:PWM_Back_Right_Femur_Module|C1[12]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[12] ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[12]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[12] ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[12]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[12] ;
+; pwm:PWM_Top_Left_Femur_Module|C1[12]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[12] ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[12]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[12] ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[12]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[12] ;
+; pwm:PWM_Top_Right_Femur_Module|C1[12]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[12] ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[12]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[12] ;
+; pwm:PWM_Back_Left_Femur_Module|C1[11]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[11] ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[11]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[11] ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[11]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[11] ;
+; pwm:PWM_Back_Right_Femur_Module|C1[11]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[11] ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[11]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[11] ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[11]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[11] ;
+; pwm:PWM_Top_Left_Femur_Module|C1[11]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[11] ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[11]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[11] ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[11]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[11] ;
+; pwm:PWM_Top_Right_Femur_Module|C1[11]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[11] ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[11]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[11] ;
+; pwm:PWM_Back_Left_Femur_Module|C1[10]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[10] ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[10]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[10] ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[10]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[10] ;
+; pwm:PWM_Back_Right_Femur_Module|C1[10]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[10] ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[10]  ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[10] ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[10]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[10] ;
+; pwm:PWM_Top_Left_Femur_Module|C1[10]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[10] ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[10]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[10] ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[10]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[10] ;
+; pwm:PWM_Top_Right_Femur_Module|C1[10]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[10] ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[10]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[10] ;
+; pwm:PWM_Back_Left_Femur_Module|C1[9]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[9]  ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[9]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[9]  ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[9]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[9]  ;
+; pwm:PWM_Back_Right_Femur_Module|C1[9]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[9]  ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[9]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[9]  ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[9]      ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[9]  ;
+; pwm:PWM_Top_Left_Femur_Module|C1[9]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[9]  ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[9]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[9]  ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[9]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[9]  ;
+; pwm:PWM_Top_Right_Femur_Module|C1[9]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[9]  ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[9]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[9]  ;
+; pwm:PWM_Back_Left_Femur_Module|C1[8]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[8]  ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[8]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[8]  ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[8]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[8]  ;
+; pwm:PWM_Back_Right_Femur_Module|C1[8]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[8]  ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[8]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[8]  ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[8]      ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[8]  ;
+; pwm:PWM_Top_Left_Femur_Module|C1[8]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[8]  ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[8]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[8]  ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[8]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[8]  ;
+; pwm:PWM_Top_Right_Femur_Module|C1[8]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[8]  ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[8]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[8]  ;
+; pwm:PWM_Back_Left_Femur_Module|C1[7]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[7]  ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[7]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[7]  ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[7]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[7]  ;
+; pwm:PWM_Back_Right_Femur_Module|C1[7]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[7]  ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[7]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[7]  ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[7]      ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[7]  ;
+; pwm:PWM_Top_Left_Femur_Module|C1[7]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[7]  ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[7]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[7]  ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[7]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[7]  ;
+; pwm:PWM_Top_Right_Femur_Module|C1[7]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[7]  ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[7]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[7]  ;
+; pwm:PWM_Back_Left_Femur_Module|C1[6]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[6]  ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[6]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[6]  ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[6]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[6]  ;
+; pwm:PWM_Back_Right_Femur_Module|C1[6]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[6]  ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[6]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[6]  ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[6]      ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[6]  ;
+; pwm:PWM_Top_Left_Femur_Module|C1[6]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[6]  ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[6]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[6]  ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[6]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[6]  ;
+; pwm:PWM_Top_Right_Femur_Module|C1[6]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[6]  ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[6]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[6]  ;
+; pwm:PWM_Back_Left_Femur_Module|C1[5]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[5]  ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[5]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[5]  ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[5]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[5]  ;
+; pwm:PWM_Back_Right_Femur_Module|C1[5]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[5]  ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[5]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[5]  ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[5]      ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[5]  ;
+; pwm:PWM_Top_Left_Femur_Module|C1[5]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[5]  ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[5]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[5]  ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[5]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[5]  ;
+; pwm:PWM_Top_Right_Femur_Module|C1[5]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[5]  ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[5]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[5]  ;
+; pwm:PWM_Back_Left_Femur_Module|C1[4]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[4]  ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[4]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[4]  ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[4]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[4]  ;
+; pwm:PWM_Back_Right_Femur_Module|C1[4]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[4]  ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[4]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[4]  ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[4]      ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[4]  ;
+; pwm:PWM_Top_Left_Femur_Module|C1[4]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[4]  ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[4]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[4]  ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[4]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[4]  ;
+; pwm:PWM_Top_Right_Femur_Module|C1[4]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[4]  ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[4]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[4]  ;
+; pwm:PWM_Back_Left_Femur_Module|C1[3]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[3]  ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[3]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[3]  ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[3]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[3]  ;
+; pwm:PWM_Back_Right_Femur_Module|C1[3]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[3]  ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[3]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[3]  ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[3]      ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[3]  ;
+; pwm:PWM_Top_Left_Femur_Module|C1[3]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[3]  ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[3]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[3]  ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[3]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[3]  ;
+; pwm:PWM_Top_Right_Femur_Module|C1[3]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[3]  ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[3]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[3]  ;
+; pwm:PWM_Back_Left_Femur_Module|C1[2]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[2]  ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[2]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[2]  ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[2]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[2]  ;
+; pwm:PWM_Back_Right_Femur_Module|C1[2]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[2]  ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[2]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[2]  ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[2]      ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[2]  ;
+; pwm:PWM_Top_Left_Femur_Module|C1[2]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[2]  ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[2]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[2]  ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[2]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[2]  ;
+; pwm:PWM_Top_Right_Femur_Module|C1[2]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[2]  ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[2]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[2]  ;
+; pwm:PWM_Back_Left_Femur_Module|C1[1]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[1]  ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[1]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[1]  ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[1]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[1]  ;
+; pwm:PWM_Back_Right_Femur_Module|C1[1]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[1]  ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[1]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[1]  ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[1]      ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[1]  ;
+; pwm:PWM_Top_Left_Femur_Module|C1[1]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[1]  ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[1]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[1]  ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[1]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[1]  ;
+; pwm:PWM_Top_Right_Femur_Module|C1[1]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[1]  ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[1]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[1]  ;
+; pwm:PWM_Back_Left_Femur_Module|C1[0]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[0]  ;
+; pwm:PWM_Back_Left_Tibia_Module|C1[0]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[0]  ;
+; pwm:PWM_Back_Right_Coxa_Module|C1[0]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[0]  ;
+; pwm:PWM_Back_Right_Femur_Module|C1[0]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[0]  ;
+; pwm:PWM_Back_Right_Tibia_Module|C1[0]   ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[0]  ;
+; pwm:PWM_Top_Left_Coxa_Module|C1[0]      ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[0]  ;
+; pwm:PWM_Top_Left_Femur_Module|C1[0]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[0]  ;
+; pwm:PWM_Top_Left_Tibia_Module|C1[0]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[0]  ;
+; pwm:PWM_Top_Right_Coxa_Module|C1[0]     ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[0]  ;
+; pwm:PWM_Top_Right_Femur_Module|C1[0]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[0]  ;
+; pwm:PWM_Top_Right_Tibia_Module|C1[0]    ; Merged with pwm:PWM_Back_Left_Coxa_Module|C1[0]  ;
+; spi_func_module:U1|ncs_r[1]             ; Merged with spi_control_module:U2|ncs_r[1]       ;
+; spi_func_module:U1|ncs_r[0]             ; Merged with spi_control_module:U2|ncs_r[0]       ;
+; spi_control_module:U2|i[4]              ; Stuck at GND due to stuck port data_in           ;
+; Total Number of Removed Registers = 234 ;                                                  ;
++-----------------------------------------+--------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -244,12 +486,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 81    ;
-; Number of registers using Synchronous Clear  ; 8     ;
+; Total registers                              ; 181   ;
+; Number of registers using Synchronous Clear  ; 9     ;
 ; Number of registers using Synchronous Load   ; 5     ;
-; Number of registers using Asynchronous Clear ; 81    ;
+; Number of registers using Asynchronous Clear ; 181   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 32    ;
+; Number of registers using Clock Enable       ; 120   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -260,9 +502,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 ; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |spi_slave_module|spi_func_module:U1|OData[4]         ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |spi_slave_module|spi_func_module:U1|byte_received[4] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |spi_slave_module|spi_func_module:U1|byte_received[7] ;
 ; 34:1               ; 4 bits    ; 88 LEs        ; 48 LEs               ; 40 LEs                 ; Yes        ; |spi_slave_module|spi_func_module:U1|rec_status[7]    ;
-; 251:1              ; 2 bits    ; 334 LEs       ; 24 LEs               ; 310 LEs                ; Yes        ; |spi_slave_module|spi_func_module:U1|rec_status[3]    ;
+; 251:1              ; 2 bits    ; 334 LEs       ; 24 LEs               ; 310 LEs                ; Yes        ; |spi_slave_module|spi_func_module:U1|rec_status[0]    ;
 ; 252:1              ; 8 bits    ; 1344 LEs      ; 1328 LEs             ; 16 LEs                 ; Yes        ; |spi_slave_module|spi_func_module:U1|send_status[6]   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
@@ -309,31 +551,251 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 +--------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: spi_control_module:U2 ;
-+-----------------------+----------+---------------------------------+
-; Parameter Name        ; Value    ; Type                            ;
-+-----------------------+----------+---------------------------------+
-; LED_CONTROL           ; 00000011 ; Unsigned Binary                 ;
-; TOP_LEFT_COXA_CONTROL ; 00000100 ; Unsigned Binary                 ;
-+-----------------------+----------+---------------------------------+
++--------------------------+----------+------------------------------+
+; Parameter Name           ; Value    ; Type                         ;
++--------------------------+----------+------------------------------+
+; LED_CONTROL              ; 00000011 ; Unsigned Binary              ;
+; TOP_LEFT_COXA_CONTROL    ; 00000100 ; Unsigned Binary              ;
+; TOP_LEFT_FEMUR_CONTROL   ; 00000101 ; Unsigned Binary              ;
+; TOP_LEFT_TIBIA_CONTROL   ; 00000110 ; Unsigned Binary              ;
+; TOP_RIGHT_COXA_CONTROL   ; 00000111 ; Unsigned Binary              ;
+; TOP_RIGHT_FEMUR_CONTROL  ; 00001000 ; Unsigned Binary              ;
+; TOP_RIGHT_TIBIA_CONTROL  ; 00001001 ; Unsigned Binary              ;
+; BACK_LEFT_COXA_CONTROL   ; 00001010 ; Unsigned Binary              ;
+; BACK_LEFT_FEMUR_CONTROL  ; 00001011 ; Unsigned Binary              ;
+; BACK_LEFT_TIBIA_CONTROL  ; 00001100 ; Unsigned Binary              ;
+; BACK_RIGHT_COXA_CONTROL  ; 00001101 ; Unsigned Binary              ;
+; BACK_RIGHT_FEMUR_CONTROL ; 00001110 ; Unsigned Binary              ;
+; BACK_RIGHT_TIBIA_CONTROL ; 00001111 ; Unsigned Binary              ;
++--------------------------+----------+------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: pwm:PWM_Coxa_Module    ;
-+----------------+----------------------------------+-----------------+
-; Parameter Name ; Value                            ; Type            ;
-+----------------+----------------------------------+-----------------+
-; T20MS          ; 11110100001000111111             ; Unsigned Binary ;
-; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary ;
-; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary ;
-; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary ;
-; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary ;
-; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary ;
-; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary ;
-; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary ;
-; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary ;
-; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary ;
-+----------------+----------------------------------+-----------------+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Top_Left_Coxa_Module ;
++----------------+----------------------------------+-----------------------+
+; Parameter Name ; Value                            ; Type                  ;
++----------------+----------------------------------+-----------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary       ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary       ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary       ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary       ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary       ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary       ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary       ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary       ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary       ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary       ;
++----------------+----------------------------------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Top_Left_Femur_Module ;
++----------------+----------------------------------+------------------------+
+; Parameter Name ; Value                            ; Type                   ;
++----------------+----------------------------------+------------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary        ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary        ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary        ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary        ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary        ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary        ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary        ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary        ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary        ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary        ;
++----------------+----------------------------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Top_Left_Tibia_Module ;
++----------------+----------------------------------+------------------------+
+; Parameter Name ; Value                            ; Type                   ;
++----------------+----------------------------------+------------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary        ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary        ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary        ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary        ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary        ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary        ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary        ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary        ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary        ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary        ;
++----------------+----------------------------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Top_Right_Coxa_Module ;
++----------------+----------------------------------+------------------------+
+; Parameter Name ; Value                            ; Type                   ;
++----------------+----------------------------------+------------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary        ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary        ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary        ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary        ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary        ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary        ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary        ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary        ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary        ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary        ;
++----------------+----------------------------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Top_Right_Femur_Module ;
++----------------+----------------------------------+-------------------------+
+; Parameter Name ; Value                            ; Type                    ;
++----------------+----------------------------------+-------------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary         ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary         ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary         ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary         ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary         ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary         ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary         ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary         ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary         ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary         ;
++----------------+----------------------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Top_Right_Tibia_Module ;
++----------------+----------------------------------+-------------------------+
+; Parameter Name ; Value                            ; Type                    ;
++----------------+----------------------------------+-------------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary         ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary         ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary         ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary         ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary         ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary         ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary         ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary         ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary         ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary         ;
++----------------+----------------------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Back_Left_Coxa_Module ;
++----------------+----------------------------------+------------------------+
+; Parameter Name ; Value                            ; Type                   ;
++----------------+----------------------------------+------------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary        ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary        ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary        ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary        ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary        ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary        ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary        ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary        ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary        ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary        ;
++----------------+----------------------------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Back_Left_Femur_Module ;
++----------------+----------------------------------+-------------------------+
+; Parameter Name ; Value                            ; Type                    ;
++----------------+----------------------------------+-------------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary         ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary         ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary         ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary         ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary         ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary         ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary         ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary         ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary         ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary         ;
++----------------+----------------------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Back_Left_Tibia_Module ;
++----------------+----------------------------------+-------------------------+
+; Parameter Name ; Value                            ; Type                    ;
++----------------+----------------------------------+-------------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary         ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary         ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary         ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary         ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary         ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary         ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary         ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary         ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary         ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary         ;
++----------------+----------------------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Back_Right_Coxa_Module ;
++----------------+----------------------------------+-------------------------+
+; Parameter Name ; Value                            ; Type                    ;
++----------------+----------------------------------+-------------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary         ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary         ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary         ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary         ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary         ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary         ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary         ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary         ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary         ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary         ;
++----------------+----------------------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Back_Right_Femur_Module ;
++----------------+----------------------------------+--------------------------+
+; Parameter Name ; Value                            ; Type                     ;
++----------------+----------------------------------+--------------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary          ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary          ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary          ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary          ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary          ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary          ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary          ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary          ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary          ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary          ;
++----------------+----------------------------------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm:PWM_Back_Right_Tibia_Module ;
++----------------+----------------------------------+--------------------------+
+; Parameter Name ; Value                            ; Type                     ;
++----------------+----------------------------------+--------------------------+
+; T20MS          ; 11110100001000111111             ; Unsigned Binary          ;
+; T0_5MS         ; 00000000000000000110000110100111 ; Unsigned Binary          ;
+; T0_75MS        ; 00000000000000001001001001111011 ; Unsigned Binary          ;
+; T1_00MS        ; 00000000000000001100001101001111 ; Unsigned Binary          ;
+; T1_25MS        ; 00000000000000001111010000100011 ; Unsigned Binary          ;
+; T1_50MS        ; 00000000000000010010010011110111 ; Unsigned Binary          ;
+; T1_75MS        ; 00000000000000010101010111001011 ; Unsigned Binary          ;
+; T2_00MS        ; 00000000000000011000011010011111 ; Unsigned Binary          ;
+; T2_25MS        ; 00000000000000011011011101110011 ; Unsigned Binary          ;
+; T2_50MS        ; 00000000000000011110100001000111 ; Unsigned Binary          ;
++----------------+----------------------------------+--------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -342,7 +804,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -352,11 +814,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-    Info: Processing started: Sat Nov 30 15:10:07 2019
+    Info: Processing started: Sat Nov 30 19:23:13 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off spi -c spi
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file /openedvfpga/spider_robot/module/pwm.v
     Info (12023): Found entity 1: pwm
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(94): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(101): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(108): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(115): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(122): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(129): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(136): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(143): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(150): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(157): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(164): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at spi_slave_module.v(171): ignored dangling comma in List of Port Connections
 Info (12021): Found 1 design units, including 1 entities, in source file /openedvfpga/spider_robot/module/spi_slave_module.v
     Info (12023): Found entity 1: spi_slave_module
 Info (12021): Found 1 design units, including 1 entities, in source file /openedvfpga/spider_robot/module/spi_control_module.v
@@ -366,8 +840,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file /opened
 Info (12127): Elaborating entity "spi_slave_module" for the top level hierarchy
 Info (12128): Elaborating entity "spi_func_module" for hierarchy "spi_func_module:U1"
 Info (12128): Elaborating entity "spi_control_module" for hierarchy "spi_control_module:U2"
-Warning (10230): Verilog HDL assignment warning at spi_control_module.v(84): truncated value with size 8 to match size of target (3)
-Info (12128): Elaborating entity "pwm" for hierarchy "pwm:PWM_Coxa_Module"
+Warning (10230): Verilog HDL assignment warning at spi_control_module.v(170): truncated value with size 8 to match size of target (3)
+Info (12128): Elaborating entity "pwm" for hierarchy "pwm:PWM_Top_Left_Coxa_Module"
 Info (286030): Timing-Driven Synthesis is running
 Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "DataU1[0]"
@@ -375,21 +849,21 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "DataU1[1]"
     Info (17048): Logic cell "DataU1[2]"
     Info (17048): Logic cell "DoneU1[0]"
-    Info (17048): Logic cell "DataU1[7]"
+    Info (17048): Logic cell "DataU1[3]"
     Info (17048): Logic cell "DataU1[6]"
     Info (17048): Logic cell "DataU1[4]"
-    Info (17048): Logic cell "DataU1[3]"
+    Info (17048): Logic cell "DataU1[7]"
     Info (17048): Logic cell "DataU1[5]"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 243 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 482 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 233 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 489 megabytes
-    Info: Processing ended: Sat Nov 30 15:10:09 2019
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:03
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 461 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 504 megabytes
+    Info: Processing ended: Sat Nov 30 19:23:17 2019
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 
